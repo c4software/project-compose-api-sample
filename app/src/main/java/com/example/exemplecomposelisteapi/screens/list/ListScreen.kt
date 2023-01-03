@@ -15,37 +15,23 @@ import com.example.exemplecomposelisteapi.data.LOADING_STATES
 import com.example.exemplecomposelisteapi.components.ListItem
 import com.example.exemplecomposelisteapi.components.Error
 import com.example.exemplecomposelisteapi.components.Loader
-import com.example.exemplecomposelisteapi.data.APIService
 import com.example.exemplecomposelisteapi.data.Todo
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import com.example.exemplecomposelisteapi.screens.list.ListViewModel
 
 // Composant qui affiche la page de liste.
 // Chaque élément est cliquable et affiche le détail d'un élément
 @Composable
-fun ListScreen() {
-    val coroutineScope = rememberCoroutineScope()
-    val loadingState = remember { mutableStateOf<LOADING_STATES>(LOADING_STATES.LOADING) }
+fun ListScreen(viewModel: ListViewModel = ListViewModel()) {
     val selectedItem = remember { mutableStateOf<Todo?>(null) }
-    var items by remember { mutableStateOf<List<Todo>>(emptyList()) }
 
-    // Récupération des données via l'API
-    // Dans un vrai projet, ici nous appeellerions un ViewModel
-    // qui contiendrait la logique de récupération des données
-    LaunchedEffect(key1 = true) {
-        coroutineScope.launch {
-            withContext(Dispatchers.IO) {
-                try {
-                    // Appel de l'API via le service (voir fichier APIService.kt)
-                    items = APIService.getInstance().getTodos()
-                    loadingState.value = LOADING_STATES.LOADED
-                } catch (e: Throwable) {
-                    loadingState.value = LOADING_STATES.ERROR
-                }
-            }
-        }
-    }
+    val loadingState = viewModel.loadingState.collectAsState()
+    val items = viewModel.itemsList.collectAsState()
+
+
+
+
+    // Récupération des éléments à afficher via le ViewModel
+    viewModel.getItems()
 
     if (selectedItem.value == null) {
         // En fonction de l'état de chargement
@@ -57,9 +43,13 @@ fun ListScreen() {
             }
             LOADING_STATES.LOADED -> {
                 // Affichage de la liste
-                ListItems(items = items) { selectedItem.value = it }
+                ListItems(items = items.value) { selectedItem.value = it }
             }
             LOADING_STATES.ERROR -> {
+                // Affichage d'un message d'erreur
+                Error()
+            }
+            else -> {
                 // Affichage d'un message d'erreur
                 Error()
             }
@@ -74,11 +64,13 @@ fun ListScreen() {
 
 // Affichage de la liste des éléments
 @Composable
-fun ListItems(items: List<Todo>, onItemSelected: (Todo) -> Unit) {
-    LazyColumn {
-        items(items) { item ->
-            ListItem(item = item.title) {
-                onItemSelected(item)
+fun ListItems(items: List<Todo>?, onItemSelected: (Todo) -> Unit) {
+    if(items != null) {
+        LazyColumn {
+            items(items) { item ->
+                ListItem(item = item.title) {
+                    onItemSelected(item)
+                }
             }
         }
     }

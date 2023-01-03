@@ -1,11 +1,13 @@
 # Application d'exemple
 
+👋 Vous ne devez pas utiliser ce projet comme base pour votre application, en effet le découpage des fichiers est fait pour l'exemple.
+
 Cette application contient les éléments suivants :
 
-- Une page d'accueil
-- Une page de liste, les données sont récupérées depuis une API (fichier `ApiService.kt`)
-- Une page de détail affiche les données de l'élément sélectionné dans la liste
-- Une page à propos affiche des informations sur l'application
+- Une page d'accueil.
+- Une page de liste, les données sont récupérées depuis une API (fichier `ApiService.kt`).
+- Une page de détail affiche les données de l'élément sélectionné dans la liste.
+- Une page à propos affiche des informations sur l'application.
 
 [Voir l'application](https://www.youtube.com/shorts/-6sUwt4ZL9k)
 
@@ -22,7 +24,7 @@ Cette application est basique, elle est juste là pour illustrer l'usage de comp
 Dans un véritable projet, il est primordial d'utiliser :
 
 - Jetpack compose pour la navigation entre les différents écrans
-- MVVM pour l'accès aux données (API, base de données, etc.)
+- HILT pour l'injection des dépendances
 
 ## Librairies
 
