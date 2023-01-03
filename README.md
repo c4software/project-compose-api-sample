@@ -1,6 +1,9 @@
-# Application d'exemple
+# Application de démonstration Compose + API
 
-👋 Vous ne devez pas utiliser ce projet comme base pour votre application, en effet le découpage des fichiers est fait pour l'exemple.
+⚠️ Vous ne devez pas utiliser ce projet comme base pour votre application, en effet le découpage des fichiers est fait pour l'exemple.
+
+⚠️ Cette application est utilisée dans le cadre de l'apprentissage des bases d'Android.
+⚠️ Elle se situe au début de la formation, elle n'est donc pas optimal (architecture, tests, etc...).
 
 Cette application contient les éléments suivants :
 
