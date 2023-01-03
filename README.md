@@ -5,6 +5,8 @@
 ⚠️ Cette application est utilisée dans le cadre de l'apprentissage des bases d'Android.
 ⚠️ Elle se situe au début de la formation, elle n'est donc pas optimal (architecture, tests, etc...).
 
+[Support](https://cours.brosseau.ovh/tp/android/compose/dirty-api.html)
+
 Cette application contient les éléments suivants :
 
 - Une page d'accueil.
