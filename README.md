@@ -4,23 +4,29 @@ Cette application contient les éléments suivants :
 
 - Une page d'accueil
 - Une page de liste, les données sont récupérées depuis une API (fichier `ApiService.kt`)
-- Une page de détail, affiche les donnée de l'élément sélectionné dans la liste
-- Une page à propos, affiche des informations sur l'application
+- Une page de détail affiche les données de l'élément sélectionné dans la liste
+- Une page à propos affiche des informations sur l'application
 
 [Voir l'application](https://www.youtube.com/shorts/-6sUwt4ZL9k)
 
+## Les ressources graphiques
+
+Les ressources graphiques sont disponibles dans le dossier `app/src/main/res/drawable` :
+
+- `cat.png` : image d'un chat (utilisé dans la page d'accueil)
+
 ## Architecture
 
-Cette application est basique, elle est juste là pour illustrer l'usage de composants Android. 
+Cette application est basique, elle est juste là pour illustrer l'usage de composants Android.
 
-Dans un véritable projet il est primordial d'utiliser :
+Dans un véritable projet, il est primordial d'utiliser :
 
-- Jetpack Compose pour la navigation entre les différents écrans
+- Jetpack compose pour la navigation entre les différents écrans
 - MVVM pour l'accès aux données (API, base de données, etc.)
 
 ## Librairies
 
-Pour fonctionner cette application utilise les librairies suivantes :
+Pour fonctionner, cette application utilise les librairies suivantes :
 
 - [Retrofit](https://square.github.io/retrofit/) pour l'accès aux données
 - Gson
