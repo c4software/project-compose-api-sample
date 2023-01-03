@@ -16,6 +16,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            // Variable réactive qui contient l'état de l'application, initialisé à HOME
+            // Home sera affiché au démarrage de l'application
             val currentScreen = remember { mutableStateOf(STATES.HOME) }
 
             Scaffold(
