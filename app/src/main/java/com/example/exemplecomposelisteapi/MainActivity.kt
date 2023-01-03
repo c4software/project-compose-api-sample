@@ -6,10 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.painterResource
-import com.example.exemplecomposelisteapi.data.STATES
 import com.example.exemplecomposelisteapi.screens.AboutScreen
 import com.example.exemplecomposelisteapi.screens.HomeScreen
 import com.example.exemplecomposelisteapi.screens.ListScreen
+
+enum class STATES { HOME, LIST, ABOUT }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
