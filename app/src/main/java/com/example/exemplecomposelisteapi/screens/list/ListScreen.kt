@@ -22,13 +22,12 @@ import com.example.exemplecomposelisteapi.screens.list.ListViewModel
 // Chaque élément est cliquable et affiche le détail d'un élément
 @Composable
 fun ListScreen(viewModel: ListViewModel = ListViewModel()) {
+    // Éléments sélectionné dans la liste
     val selectedItem = remember { mutableStateOf<Todo?>(null) }
 
+    // Variable qui changeront d'état lors du chargement des données
     val loadingState = viewModel.loadingState.collectAsState()
     val items = viewModel.itemsList.collectAsState()
-
-
-
 
     // Récupération des éléments à afficher via le ViewModel
     viewModel.getItems()
