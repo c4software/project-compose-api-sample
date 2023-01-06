@@ -8,7 +8,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.res.painterResource
 import com.example.exemplecomposelisteapi.screens.AboutScreen
 import com.example.exemplecomposelisteapi.screens.HomeScreen
-import com.example.exemplecomposelisteapi.screens.ListScreen
+import com.example.exemplecomposelisteapi.screens.list.ListScreen
 
 enum class STATES { HOME, LIST, ABOUT }
 

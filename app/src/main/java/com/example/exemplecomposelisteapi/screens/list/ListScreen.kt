@@ -1,4 +1,4 @@
-package com.example.exemplecomposelisteapi.screens
+package com.example.exemplecomposelisteapi.screens.list
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,12 +16,12 @@ import com.example.exemplecomposelisteapi.components.ListItem
 import com.example.exemplecomposelisteapi.components.Error
 import com.example.exemplecomposelisteapi.components.Loader
 import com.example.exemplecomposelisteapi.data.Todo
-import com.example.exemplecomposelisteapi.screens.list.ListViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 // Composant qui affiche la page de liste.
 // Chaque élément est cliquable et affiche le détail d'un élément
 @Composable
-fun ListScreen(viewModel: ListViewModel = ListViewModel()) {
+fun ListScreen(viewModel: ListViewModel = viewModel()) {
     // Éléments sélectionné dans la liste
     val selectedItem = remember { mutableStateOf<Todo?>(null) }
 
