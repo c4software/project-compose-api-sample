@@ -2,7 +2,9 @@ package com.example.exemplecomposelisteapi.data
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 data class Todo(
     var userId: Int,
@@ -11,11 +13,29 @@ data class Todo(
     var completed: Boolean
 )
 
+data class TodoPost(
+    var userId: Int,
+    var title: String,
+    var completed: Boolean
+)
+
 const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 interface APIService {
+    // Récupération de la liste des éléments
+    // Ici nous utilisons un GET
+    // Pour appeler l'API, nous utilisons l'URL suivante :
+    // https://jsonplaceholder.typicode.com/todos
     @GET("todos")
     suspend fun getTodos(): List<Todo>
+
+    // On utilise @Body pour envoyer des données au serveur
+    // L'objet TodoPost sera converti en JSON (vous devez le fournir en paramètre)
+    // Ici nous utilisons un POST
+    // Pour appeler l'API, nous utilisons l'URL suivante :
+    // https://jsonplaceholder.typicode.com/addTodo
+    @POST("addTodo")
+    suspend fun addTodo(@Body todoPost: TodoPost): Todo
 
     companion object {
         var apiService: APIService? = null
