@@ -20,11 +20,11 @@ data class TodoPost(
 )
 
 data class Photo(
-    var albumId: Int,
-    var id: Int,
-    var title: String,
-    var url: String,
-    var thumbnailUrl: String,
+    var albumId: Int, // Identifiant de l'album
+    var id: Int, // Identifiant de la photo
+    var title: String, // Titre de la photo
+    var url: String, // URL de la photo (lien vers l'image, de type jpg, png, etc.)
+    var thumbnailUrl: String, // URL de la miniature de la photo (lien vers l'image, de type jpg, png, etc.)
 )
 
 const val BASE_URL = "https://jsonplaceholder.typicode.com/"
