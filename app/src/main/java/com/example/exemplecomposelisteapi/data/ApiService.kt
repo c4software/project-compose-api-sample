@@ -19,6 +19,14 @@ data class TodoPost(
     var completed: Boolean
 )
 
+data class Photo(
+    var albumId: Int,
+    var id: Int,
+    var title: String,
+    var url: String,
+    var thumbnailUrl: String,
+)
+
 const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 interface APIService {
@@ -28,6 +36,13 @@ interface APIService {
     // https://jsonplaceholder.typicode.com/todos
     @GET("todos")
     suspend fun getTodos(): List<Todo>
+
+    // Récupération de la liste des photos
+    // Ici nous utilisons un GET
+    // Pour appeler l'API, nous utilisons l'URL suivante :
+    // https://jsonplaceholder.typicode.com/photos
+    @GET("photos")
+    suspend fun getPhotos(): List<Photo>
 
     // On utilise @Body pour envoyer des données au serveur
     // L'objet TodoPost sera converti en JSON (vous devez le fournir en paramètre)

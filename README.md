@@ -12,9 +12,10 @@ Cette application contient les éléments suivants :
 - Une page d'accueil.
 - Une page de liste, les données sont récupérées depuis une API (fichier `ApiService.kt`).
 - Une page de détail affiche les données de l'élément sélectionné dans la liste.
+- Une liste de photos charger depuis une API (fichier `ApiService.kt`), les photos sont charger par le réseau (via coil).
 - Une page à propos affiche des informations sur l'application.
 
-[Voir l'application](https://www.youtube.com/shorts/-6sUwt4ZL9k)
+[Voir l'application](https://www.youtube.com/shorts/hWCIqjsTJiw)
 
 ## Les ressources graphiques
 

@@ -48,10 +48,6 @@ fun ListScreen(viewModel: ListViewModel = viewModel()) {
                 // Affichage d'un message d'erreur
                 Error()
             }
-            else -> {
-                // Affichage d'un message d'erreur
-                Error()
-            }
         }
     } else {
         DetailScreen(item = selectedItem.value!!.title) {

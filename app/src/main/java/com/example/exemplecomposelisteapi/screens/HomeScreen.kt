@@ -13,7 +13,10 @@ import com.example.exemplecomposelisteapi.R
 
 // Composant qui affiche la page d'accueil, constitué d'une image et d'un bouton
 @Composable
-fun HomeScreen(onContinue: () -> Unit) {
+fun HomeScreen(
+    onPhotoClick: () -> Unit,
+    onListClick: () -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -21,8 +24,11 @@ fun HomeScreen(onContinue: () -> Unit) {
     ) {
         Image(painter = painterResource(id = R.drawable.cat), modifier = Modifier.padding(16.dp), contentDescription = "Chat")
         Spacer(modifier = Modifier.padding(16.dp))
-        Button(onClick = onContinue) {
-            Text("Continuer")
+        Button(onClick = onListClick) {
+            Text("Voir la liste")
+        }
+        Button(onClick = onPhotoClick) {
+            Text("Voir les photos")
         }
     }
 }

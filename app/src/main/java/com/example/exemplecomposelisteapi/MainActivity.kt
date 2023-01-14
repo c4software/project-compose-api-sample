@@ -9,8 +9,9 @@ import androidx.compose.ui.res.painterResource
 import com.example.exemplecomposelisteapi.screens.AboutScreen
 import com.example.exemplecomposelisteapi.screens.HomeScreen
 import com.example.exemplecomposelisteapi.screens.list.ListScreen
+import com.example.exemplecomposelisteapi.screens.photos.PhotoScreen
 
-enum class STATES { HOME, LIST, ABOUT }
+enum class STATES { HOME, LIST, ABOUT, PHOTO }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +37,12 @@ class MainActivity : ComponentActivity() {
             ) {
                 // Affichage du bon écran en fonction de la page active
                 when (currentScreen.value) {
-                    STATES.HOME -> HomeScreen {
-                        currentScreen.value = STATES.LIST
-                    }
+                    STATES.HOME -> HomeScreen(
+                        onListClick = { currentScreen.value = STATES.LIST },
+                        onPhotoClick = { currentScreen.value = STATES.PHOTO }
+                    )
                     STATES.LIST -> ListScreen()
+                    STATES.PHOTO -> PhotoScreen()
                     STATES.ABOUT -> AboutScreen()
                 }
 
@@ -66,6 +69,14 @@ fun BottomBar(states: MutableState<STATES>, selected: (STATES) -> Unit = {}) {
             selected = states.value == STATES.LIST,
             onClick = {
                 selected(STATES.LIST)
+            }
+        )
+        BottomNavigationItem(
+            icon = { Icon(painter = painterResource(id = R.drawable.ic_baseline_insert_photo_24), contentDescription = "List") },
+            label = { Text("Photo") },
+            selected = states.value == STATES.PHOTO,
+            onClick = {
+                selected(STATES.PHOTO)
             }
         )
         BottomNavigationItem(
