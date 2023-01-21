@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class ListViewModel : ViewModel() {
     val itemsList = MutableStateFlow<List<Todo>>(emptyList())
-    val loadingState = MutableStateFlow<LOADING_STATES>(LOADING_STATES.LOADING)
+    val loadingState = MutableStateFlow(LOADING_STATES.LOADING)
 
     // Récupération des éléments.
     // On utilise un CoroutineScope pour pouvoir faire des appels réseaux

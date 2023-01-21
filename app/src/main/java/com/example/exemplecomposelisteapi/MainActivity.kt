@@ -9,9 +9,10 @@ import androidx.compose.ui.res.painterResource
 import com.example.exemplecomposelisteapi.screens.AboutScreen
 import com.example.exemplecomposelisteapi.screens.HomeScreen
 import com.example.exemplecomposelisteapi.screens.list.ListScreen
+import com.example.exemplecomposelisteapi.screens.login.LoginScreen
 import com.example.exemplecomposelisteapi.screens.photos.PhotoScreen
 
-enum class STATES { HOME, LIST, ABOUT, PHOTO }
+enum class STATES { HOME, LIST, ABOUT, PHOTO, LOGIN }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +45,12 @@ class MainActivity : ComponentActivity() {
                     STATES.LIST -> ListScreen()
                     STATES.PHOTO -> PhotoScreen()
                     STATES.ABOUT -> AboutScreen()
+                    STATES.LOGIN -> LoginScreen {
+                        // Après la connexion, on affiche la page à propos
+                        // Ceci est un exemple, il faudrait plutôt afficher la page d'accueil
+                        // ou la page de liste
+                        currentScreen.value = STATES.ABOUT
+                    }
                 }
 
             }
@@ -80,11 +87,11 @@ fun BottomBar(states: MutableState<STATES>, selected: (STATES) -> Unit = {}) {
             }
         )
         BottomNavigationItem(
-            icon = { Icon(painter = painterResource(id = R.drawable.ic_baseline_info_24), contentDescription = "About") },
-            label = { Text("About") },
-            selected = states.value == STATES.ABOUT,
+            icon = { Icon(painter = painterResource(id = R.drawable.baseline_person_24), contentDescription = "About") },
+            label = { Text("Login") },
+            selected = states.value == STATES.LOGIN,
             onClick = {
-                selected(STATES.ABOUT)
+                selected(STATES.LOGIN)
             }
         )
     }

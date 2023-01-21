@@ -13,10 +13,13 @@ data class Todo(
     var completed: Boolean
 )
 
-data class TodoPost(
-    var userId: Int,
-    var title: String,
-    var completed: Boolean
+data class LoginInfo(
+    var username: String,
+    var password: String,
+)
+
+data class LoginResponse(
+    var token: String,
 )
 
 data class Photo(
@@ -44,13 +47,11 @@ interface APIService {
     @GET("photos")
     suspend fun getPhotos(): List<Photo>
 
-    // On utilise @Body pour envoyer des données au serveur
-    // L'objet TodoPost sera converti en JSON (vous devez le fournir en paramètre)
+    // Fausse API permettant de se connecter
     // Ici nous utilisons un POST
-    // Pour appeler l'API, nous utilisons l'URL suivante :
-    // https://jsonplaceholder.typicode.com/addTodo
-    @POST("addTodo")
-    suspend fun addTodo(@Body todoPost: TodoPost): Todo
+    // https://jsonplaceholder.typicode.com/posts
+    @POST("posts")
+    suspend fun doLogin(@Body loginInfo: LoginInfo): LoginResponse
 
     companion object {
         var apiService: APIService? = null
