@@ -13,6 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.exemplecomposelisteapi.data.LOADING_STATES
@@ -75,11 +76,17 @@ fun LoginScreen(viewModel: LoginViewModel = viewModel(), loginAction: (LoginResp
                     }
                 }
             }) {
-            if(loadingState.value == LOADING_STATES.LOADING) {
+            if (loadingState.value == LOADING_STATES.LOADING) {
                 Text("Chargement...")
             } else {
                 Text("Se connecter")
             }
         }
     }
+}
+
+@Composable
+@Preview(showBackground = true, showSystemUi = true)
+fun LoginScreenPreview() {
+    LoginScreen(loginAction = {})
 }
