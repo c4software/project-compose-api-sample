@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -21,4 +22,10 @@ fun ListItem(item: String, onClick: () -> Unit) {
         Text(item, modifier = Modifier.padding(16.dp))
         Spacer(modifier = Modifier.weight(1f))
     }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun ListItemPreview() {
+    ListItem("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut") {}
 }
